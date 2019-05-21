@@ -5,6 +5,7 @@ const checkForSession = require("./middlewares/checkForSession");
 const swagController = require("./controllers/swagController");
 const authController = require('./controllers/authController');
 const cartController = require("./controllers/cartController");
+const searchController = require("./controllers/searchController");
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.get("/api/swag", swagController.read);
 app.post("./api/cart/checkout", cartController.checkout);
 app.post("./api/cart/:id", cartController.add);
 app.delete("./api/cart/:id", cartController.delete);
+
+app.get("./api/search", searchController.search);
 
 app.listen(SERVER_PORT, () => {
     console.log(`I have a beautiful girlfriend on port ${SERVER_PORT}`);
